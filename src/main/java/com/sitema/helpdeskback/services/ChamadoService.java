@@ -1,4 +1,4 @@
-package com.sitema.helpdeskback.service;
+package com.sitema.helpdeskback.services;
 
 import com.sitema.helpdeskback.domain.Chamado;
 import com.sitema.helpdeskback.domain.Cliente;
@@ -7,10 +7,9 @@ import com.sitema.helpdeskback.domain.dtos.ChamadoDTO;
 import com.sitema.helpdeskback.enums.Prioridade;
 import com.sitema.helpdeskback.enums.Status;
 import com.sitema.helpdeskback.repositories.ChamadoRepository;
-import com.sitema.helpdeskback.service.exceptions.ResourceNotFoundException;
+import com.sitema.helpdeskback.services.exceptions.ResourceNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

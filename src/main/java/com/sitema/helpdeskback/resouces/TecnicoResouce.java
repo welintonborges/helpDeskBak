@@ -2,8 +2,7 @@ package com.sitema.helpdeskback.resouces;
 
 import com.sitema.helpdeskback.domain.Tecnico;
 import com.sitema.helpdeskback.domain.dtos.TecnicoDTO;
-import com.sitema.helpdeskback.service.TecnicoService;
-import jakarta.persistence.criteria.CriteriaBuilder;
+import com.sitema.helpdeskback.services.TecnicoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.net.URL;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/tecnicos")

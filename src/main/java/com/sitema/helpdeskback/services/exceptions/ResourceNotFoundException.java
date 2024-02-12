@@ -1,4 +1,4 @@
-package com.sitema.helpdeskback.service.exceptions;
+package com.sitema.helpdeskback.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
 

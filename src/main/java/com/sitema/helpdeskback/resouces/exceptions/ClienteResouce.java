@@ -2,7 +2,7 @@ package com.sitema.helpdeskback.resouces.exceptions;
 
 import com.sitema.helpdeskback.domain.Cliente;
 import com.sitema.helpdeskback.domain.dtos.ClienteDTO;
-import com.sitema.helpdeskback.service.ClienteService;
+import com.sitema.helpdeskback.services.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

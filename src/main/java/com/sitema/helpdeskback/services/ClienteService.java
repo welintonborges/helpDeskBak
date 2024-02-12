@@ -1,15 +1,16 @@
-package com.sitema.helpdeskback.service;
+package com.sitema.helpdeskback.services;
 
 import com.sitema.helpdeskback.domain.Pessoa;
 import com.sitema.helpdeskback.domain.Cliente;
 import com.sitema.helpdeskback.domain.dtos.ClienteDTO;
 import com.sitema.helpdeskback.repositories.PessoaRepository;
 import com.sitema.helpdeskback.repositories.ClienteRepository;
-import com.sitema.helpdeskback.service.exceptions.DatabaseException;
-import com.sitema.helpdeskback.service.exceptions.ResourceNotFoundException;
+import com.sitema.helpdeskback.services.exceptions.DatabaseException;
+import com.sitema.helpdeskback.services.exceptions.ResourceNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,9 @@ public class ClienteService {
     private ClienteRepository ClienteRepository;
     @Autowired
     private PessoaRepository pessoaRepository;
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+
     public Cliente findById(Integer id) {
         Optional<Cliente> obj = ClienteRepository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException("Objeto não encontrado ! id: " + id));
@@ -34,6 +38,7 @@ public class ClienteService {
 
     public Cliente create(ClienteDTO objDTO) {
         objDTO.setId(null);
+        objDTO.setSenha(encoder.encode(objDTO.getSenha()));
         validPorCpfEmail(objDTO);
         Cliente newObj = new Cliente(objDTO);
         return  ClienteRepository.save(newObj);
@@ -54,6 +59,7 @@ public class ClienteService {
 
     public Cliente update(Integer id,@Valid ClienteDTO objDto) {
         objDto.setId(id);
+
         Cliente oldObj = findById(id);
         validPorCpfEmail(objDto);
         oldObj = new Cliente(objDto);

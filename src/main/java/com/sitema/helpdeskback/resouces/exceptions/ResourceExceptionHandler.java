@@ -1,7 +1,7 @@
 package com.sitema.helpdeskback.resouces.exceptions;
 
-import com.sitema.helpdeskback.service.exceptions.DatabaseException;
-import com.sitema.helpdeskback.service.exceptions.ResourceNotFoundException;
+import com.sitema.helpdeskback.services.exceptions.DatabaseException;
+import com.sitema.helpdeskback.services.exceptions.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.Instant;
-import java.util.logging.FileHandler;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

@@ -2,7 +2,7 @@ package com.sitema.helpdeskback.resouces;
 
 import com.sitema.helpdeskback.domain.Chamado;
 import com.sitema.helpdeskback.domain.dtos.ChamadoDTO;
-import com.sitema.helpdeskback.service.ChamadoService;
+import com.sitema.helpdeskback.services.ChamadoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
